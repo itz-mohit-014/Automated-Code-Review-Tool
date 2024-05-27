@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Code Review Tool</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- terminal file -->
+    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+    <script src="node_modules/@xterm/xterm/lib/xterm.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Automated Code Review Tool</h1>
+        <form id="codeReviewForm">
+            <label for="repositoryUrl">Repository URL:</label>
+            <input type="text" id="repositoryUrl" name="repositoryUrl" placeholder="enter repository url... " required>
+            <button type="submit">Start Analysing</button>
+        </form>
+        <div id="result">
+        </div>
+    </div>
+
+    <div id="terminal"></div>
+    <script src="./script.js"></script>
+</body>
+</html>

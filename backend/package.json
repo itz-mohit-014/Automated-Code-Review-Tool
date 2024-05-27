@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node -r dotenv/config --experimental-json-modules ./app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dependency-check": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.3.0",
+    "express": "^4.19.2",
+    "globals": "^15.3.0",
+    "jshint": "^2.13.6",
+    "mongoose": "^8.4.0",
+    "prettier": "^3.2.5",
+    "retire": "^5.0.0-beta.1",
+    "simple-git": "^3.24.0",
+    "snyk": "^1.1291.0",
+    "sonar-scanner": "^3.1.0",
+    "tmp": "^0.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "nodemon": "^3.1.1"
+  }
+}
