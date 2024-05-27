@@ -11,7 +11,7 @@ This tool helps to find error, warnings, vulnerebilities, sercurity level and fu
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/itz-mohit-014/Automated-Code-Review-Tool.git
 ```
 
 Go to the project directory
