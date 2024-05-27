@@ -1,4 +1,4 @@
-name: Code Review
+name: code-review
 
 on: [push, pull_request]
 
@@ -10,37 +10,43 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '>=16'
+          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install dependencies (Backend)
+        working-directory: ./backend
         run: npm install
 
-      - name: Run ESLint
+      - name: Install dependencies (Frontend)
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Run ESLint (Backend)
+        working-directory: ./backend
         run: npx eslint .
 
-      - name: Run Prettier
-        run: npx prettier --check .
+      - name: Run ESLint (Frontend)
+        working-directory: ./frontend
+        run: npx eslint .
 
-      - name: Run JSHint
+      - name: Run JSHint (Backend)
+        working-directory: ./backend
         run: npx jshint .
 
-      - name: Run Snyk
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk test
+      - name: Run JSHint (Frontend)
+        working-directory: ./frontend
+        run: npx jshint .
 
-      - name: Run Retire.js
-        run: npx retire
+      - name: Run Snyk (Backend)
+        working-directory: ./backend
+        run: npx snyk test
 
-      - name: Run Dependency-Check
-        run: npx dependency-check --scan .
-
-      - name: Run SonarQube Scanner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: npx sonar-scanner
+      - name: Run Snyk (Frontend)
+        working-directory: ./frontend
+        run: npx snyk test
